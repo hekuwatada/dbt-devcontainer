@@ -1,0 +1,13 @@
+dbt_example:
+  outputs:
+    dev:
+      dataset: dbt_example
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: EU
+      method: oauth
+      priority: interactive
+      project: dev-bq-322916
+      threads: 8
+      type: bigquery
+  target: dev
