@@ -8,6 +8,13 @@ RUN apt-get update -y && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Install gcloud
+RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-392.0.0-linux-x86_64.tar.gz
+RUN tar -xf google-cloud-cli-392.0.0-linux-x86_64.tar.gz
+RUN ./google-cloud-sdk/install.sh
+ENV PATH=$PATH:/workspaces/dbt-docker/google-cloud-sdk/bin/
+  #&& ./google-cloud-sdk/bin/gcloud init
+
 # Install DBT
 RUN pip install -U pip
 RUN pip install dbt-bigquery
@@ -15,3 +22,4 @@ RUN pip install dbt-bigquery
 # Set DBT profiles directory for profiles.yml
 ENV DBT_PROFILES_DIR=./
 # ENV GOOGLE_APPLICATION_CREDENTIALS=''
+
