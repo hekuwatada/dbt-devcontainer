@@ -1,0 +1,39 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.241.1/containers/docker-existing-dockerfile
+{
+       "name": "DBT Dockerfile for Dev Container",
+
+       // Sets the run context to one level up instead of the .devcontainer folder.
+       "context": "..",
+
+       // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+       "dockerFile": "../Dockerfile",
+
+       // TODO: parameterise the name of the json file to accommodate service account keys 
+       "containerEnv": { "GOOGLE_APPLICATION_CREDENTIALS": "/gclound-config/application_default_credentials.json" },
+
+       // Mount gcloud credentials
+       // NOTE: use of localEnv:HOME is a workaround not to expose your local directory structure
+       "mounts": ["source=${localEnv:HOME}/.config/gcloud,target=/gclound-config,type=bind,consistency=cached"]
+
+       // "runArgs": [ "-e GOOGLE_APPLICATION_CREDENTIALS=${localWorkspaceFolder}/gcloud_credentials.json" ]
+
+       // Pass build time Docker ARGs
+       // "build": { "args": { "MYARG": "MYVALUE", "MYARGFROMENVVAR": "${localEnv:VARIABLE_NAME}" }
+
+       // Use 'forwardPorts' to make a list of ports inside the container available locally.
+       // "forwardPorts": [],
+
+       // Uncomment the next liRne to run commands after the container is created - for example installing curl.
+       // "postCreateCommand": "apt-get update && apt-get install -y curl",
+
+       // Uncomment when using a ptrace-based debugger like C, Go, and Rust
+       // "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+
+       // TODO: Do not mount /var/run/docker.sock 
+       // Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+       // "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+
+       // Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+       // "remoteUser": "vscode"
+}
