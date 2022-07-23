@@ -50,7 +50,8 @@ dbt run
 dbt test
 ```
 
-## How to run bq CLI in container
+## How to run bq CLI in container
+
 1. In the top directory, setup gcloud config for the GCP project and authenticate to Google Cloud API for bq CLI
 ```
 make gcloud/setup
