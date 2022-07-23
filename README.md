@@ -29,20 +29,16 @@ dbt init dbt_example
     - 8 hreads
     - EU as data location
 
-## How to run dbt commands
-1. Go to `dbt_example` dbt project directry
-```
-cd dbt_example/
-```
-2. Set GCP account and project ID in exports.sh
+## How to run dbt commands in container
+1. Configure GCP account and project ID in exports.sh
 ```
 source exports.sh
 ```
-3. Setup gcloud config and authenticate to Google Cloud API for bq CLI
+2. Go to `dbt_example` dbt project directry
 ```
-make gcloud/setup
+cd dbt_example/
 ```
-4. Run dbt commands
+3. Run dbt commands
 ```
 # tests fail if dbt_example dataset does not exist
 dbt test
@@ -53,9 +49,21 @@ dbt run
 # tests pass except one
 dbt test
 ```
-5. Run bq command
+
+## How to run bq CLI in container
+1. In the top directory, setup gcloud config for the GCP project and authenticate to Google Cloud API for bq CLI
+```
+make gcloud/setup
+```
+
+2. Run bq command
 ```
 # to see dbt_example dataset created
 bq ls
+
+# to see the models created
 bq ls dbt_example
+
+# to query a table
+bq query 'SELECT * FROM dbt_example.my_first_dbt_model'
 ```

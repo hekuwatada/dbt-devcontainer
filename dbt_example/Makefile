@@ -2,14 +2,17 @@
 SHELL := /bin/bash
 .SHELLFLAGS := -o pipefail -euc
 
-# Setup gcloud projet config and authenticate to Google Cloud API
-.PHONY: gcloud/setup
-gcloud/setup:
-	@echo "\n== gcloud/setup: eg make gcloud/setup\n"
-	gcloud config set account ${GCP_ACCOUNT}
-	gcloud config set project ${GCP_DEV_PROJECT}
-	gcloud auth login
+.PHONY: test
+test: clean
+	@echo "\n== test\n"
+	dbt test
+
+.PHONY: run
+run: clean
+	@echo "\n== run\n"
+	dbt run
 
 .PHONY: clean
 clean:
+	@echo "\n== clean\n"
 	dbt clean
