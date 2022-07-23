@@ -12,7 +12,7 @@ RUN apt-get update -y && \
 RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-392.0.0-linux-x86_64.tar.gz
 RUN tar -xf google-cloud-cli-392.0.0-linux-x86_64.tar.gz
 RUN ./google-cloud-sdk/install.sh
-ENV PATH=$PATH:/workspaces/dbt-docker/google-cloud-sdk/bin/
+ENV PATH=$PATH:/workspaces/dbt-devcontainer/google-cloud-sdk/bin/
   #&& ./google-cloud-sdk/bin/gcloud init
 
 # Install DBT
