@@ -4,18 +4,21 @@
 - VSCode with below extensions
   - Remote SSH
   - Remote Development
+  - Makefile tools
 - Docker
+- GCP account
+- GCP project ID for BigQuery
 
 ## How to run the development container in VSCode
-- Clone and open the repo in VSCode
-- Remote Explore -> Reopen in Container
-- Open Terminal to be in the container
+1. Clone and open the repo in VSCode
+2. Remote Explore -> Reopen in Container
+3. Open Terminal to be in the container
 
 ## How the dbt project was created
-- Create Dockerfile based on python image with dbt and gcloud
+1. Create Dockerfile based on python image with dbt and gcloud
   - NOTE: this is to have a clean local dev environment without having to install tools individually
-- Build the Docker image, run it and go into the container via VSCode Terminal
-- Based on https://docs.getdbt.com/docs/building-a-dbt-project/projects#getting-started, in the container, run:
+2. Build the Docker image, run it and go into the container via VSCode Terminal
+3. Based on https://docs.getdbt.com/docs/building-a-dbt-project/projects#getting-started, in the container, run:
 ```
 dbt init dbt_example
 ```
@@ -27,7 +30,32 @@ dbt init dbt_example
     - EU as data location
 
 ## How to run dbt commands
+1. Go to `dbt_example` dbt project directry
 ```
 cd dbt_example/
-dbt compile
+```
+2. Set GCP account and project ID in exports.sh
+```
+source exports.sh
+```
+3. Setup gcloud config and authenticate to Google Cloud API for bq CLI
+```
+make gcloud/setup
+```
+4. Run dbt commands
+```
+# tests fail if dbt_example dataset does not exist
+dbt test
+
+# to create dbt_example dataset with models
+dbt run
+
+# tests pass except one
+dbt test
+```
+5. Run bq command
+```
+# to see dbt_example dataset created
+bq ls
+bq ls dbt_example
 ```
