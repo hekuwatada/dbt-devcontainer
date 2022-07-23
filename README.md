@@ -14,21 +14,6 @@
 2. Remote Explore -> Reopen in Container
 3. Open Terminal to be in the container
 
-## How the dbt project was created
-1. Create Dockerfile based on python image with dbt and gcloud
-  - NOTE: this is to have a clean local dev environment without having to install tools individually
-2. Build the Docker image, run it and go into the container via VSCode Terminal
-3. Based on https://docs.getdbt.com/docs/building-a-dbt-project/projects#getting-started, in the container, run:
-```
-dbt init dbt_example
-```
-  - Options specified during `init` which were saved in `profiles.yml`:
-    - BigQuery
-    - oauth (for ease of initial setup; TODO: change to service_account)
-    - `dbt_example` as dataset
-    - 8 hreads
-    - EU as data location
-
 ## How to run dbt commands in container
 1. Configure GCP account and project ID in exports.sh
 ```
@@ -68,3 +53,19 @@ bq ls dbt_example
 # to query a table
 bq query 'SELECT * FROM dbt_example.my_first_dbt_model'
 ```
+
+## Appendix
+### How the dbt project was created
+1. Create Dockerfile based on python image with dbt and gcloud
+  - NOTE: this is to have a clean local dev environment without having to install tools individually
+2. Build the Docker image, run it and go into the container via VSCode Terminal
+3. Based on https://docs.getdbt.com/docs/building-a-dbt-project/projects#getting-started, in the container, run:
+```
+dbt init dbt_example
+```
+  - Options specified during `init` which were saved in `profiles.yml`:
+    - BigQuery
+    - oauth (for ease of initial setup; TODO: change to service_account)
+    - `dbt_example` as dataset
+    - 8 hreads
+    - EU as data location
