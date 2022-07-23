@@ -7,7 +7,7 @@ dbt_example:
       location: EU
       method: oauth
       priority: interactive
-      project: dev-bq-322916
+      project: "{{ env_var('GCP_DEV_PROJECT') }}"
       threads: 8
       type: bigquery
   target: dev
