@@ -54,7 +54,7 @@ bq ls dbt_example
 bq query 'SELECT * FROM dbt_example.my_first_dbt_model'
 ```
 
-## How to run the same Docker container without VSCode
+## How to run the same Docker container without VSCode
 
 1. Build Docker image
 ```
@@ -65,7 +65,6 @@ make docker/build
 ```
 make docker/run
 ```
-
 
 ## Appendix
 ### How the dbt project was created
