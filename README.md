@@ -14,7 +14,7 @@
 2. Remote Explore -> Reopen in Container
 3. Open Terminal to be in the container
 
-## How to run dbt commands in container
+## How to run dbt commands in container (terminal in VSCode)
 1. Configure GCP account and project ID in exports.sh
 ```
 source exports.sh
@@ -35,7 +35,7 @@ dbt run
 dbt test
 ```
 
-## How to run bq CLI in container
+## How to run bq CLI in container (terminal in VSCode)
 
 1. In the top directory, setup gcloud config for the GCP project and authenticate to Google Cloud API for bq CLI
 ```
@@ -53,6 +53,19 @@ bq ls dbt_example
 # to query a table
 bq query 'SELECT * FROM dbt_example.my_first_dbt_model'
 ```
+
+## How to run the same Docker container without VSCode
+
+1. Build Docker image
+```
+make docker/build
+```
+
+2. Run Docker container
+```
+make docker/run
+```
+
 
 ## Appendix
 ### How the dbt project was created

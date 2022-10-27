@@ -19,9 +19,10 @@ RUN mkdir -p /usr/local/gcloud \
 ENV PATH=$PATH:/usr/local/gcloud/google-cloud-sdk/bin/
 
 # Install Poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+
 # TODO: use non-root user
-ENV PATH=$PATH:/root/.poetry/bin
+ENV PATH=$PATH:/root/.local/bin
 
 # Install Python dependencies
 COPY poetry.lock .
