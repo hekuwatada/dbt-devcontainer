@@ -28,7 +28,7 @@ docker/run:
 .PHONY: docker/dbt
 docker/dbt:
 	@echo "\n== docker/dbt\n"
-	docker run -it --rm \
+	docker run --rm \
 		--mount src="$$(pwd)",target=/workspaces,type=bind \
 		--mount src="${HOME}/.config/gcloud",target=/root/.config/gcloud,type=bind \
 		-w /workspaces/$(WORKING_DIR) \
