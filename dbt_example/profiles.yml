@@ -11,3 +11,13 @@ dbt_example:
       threads: 8
       type: bigquery
   target: dev
+
+elementary:
+  outputs:
+    default:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_DEV_PROJECT') }}"
+      dataset: dbt_example_elementary
+      location: EU
+      threads: 8
