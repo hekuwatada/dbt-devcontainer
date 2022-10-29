@@ -74,6 +74,8 @@ elementary_output.json
 
 ## Step 4: Open the generated report in HTML
 
+Open `elementary_-_*.html` in a Browser.
+
 
 
 ## Appendix
