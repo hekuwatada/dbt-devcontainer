@@ -46,8 +46,13 @@ elementary:
 
 ## Step 2: Install Elementary CLI in the container
 
+(1) Run below:
 ```
 poetry add elementary-data[bigquery]
 ```
 
+(2) Run Elementary CLI to confirm installation:
+```
+edr --help
+```
 
