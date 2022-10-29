@@ -36,6 +36,8 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+    anomaly_detection_example:
+      +materialized: table
   ## elementary models will be created in the schema '<your_schema>_elementary'
   ## see docs: https://docs.elementary-data.com/
   elementary:

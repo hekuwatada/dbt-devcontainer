@@ -1,0 +1,16 @@
+
+version: 2
+
+models:
+  - name: table_that_fluctuates_num_rows
+    description: "An example for anomaly detection test"
+    config:
+      elementary:
+        timestamp_column: updated_at
+    tests:
+      - elementary.schema_changes:
+          tags: ['elementary']
+      - elementary.table_anomalies:
+          table_anomalies:
+            - row_count
+          tags: ['elementary']
