@@ -44,6 +44,7 @@ docker/dbt:
 .PHONY: gcloud/setup
 gcloud/setup:
 	@echo "\n== gcloud/setup\n"
+	gcloud config configurations create "${GCP_CONFIG_NAME}"
 	gcloud config set account ${GCP_ACCOUNT}
 	gcloud config set project ${GCP_DEV_PROJECT}
 	gcloud auth login

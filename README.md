@@ -6,7 +6,9 @@
   - Remote Development
   - Makefile tools
 - Docker
-- GCP account
+- GCP account with below permissions:
+  - BigQuery Data Editor
+  - BigQuery Job User
 - GCP project ID for BigQuery
 
 ## How to run the development container in VSCode
