@@ -18,7 +18,7 @@ OR in VSCode, rebuild the container.
 source exports.sh
 ```
 
-## Step 1: Configure Elementary profile
+## Step 1: Configure Elementary profile in the container
 
 Ref: https://docs.elementary-data.com/quickstart-cli
 
@@ -43,5 +43,11 @@ elementary:
       threads: 8
 ```
 (2) Copy-paste the output and add it to the `profiles.yml`
+
+## Step 2: Install Elementary CLI in the container
+
+```
+poetry add elementary-data[bigquery]
+```
 
 
